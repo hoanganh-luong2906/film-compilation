@@ -1,0 +1,164 @@
+.homepage-container {
+    margin-top: 4% !important;
+
+    .homepage-content {
+        display: flex;
+        justify-content: flex-start;
+        color: inherit;
+
+        .film-item {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: left ;
+            align-items: flex-start;
+            width: 15vw;
+            border: none;
+            background: none;
+            text-align: left;
+            color: inherit;
+            padding: 0;
+
+            .film-shortdes {
+                width: inherit;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                opacity: 50%;
+                font-size: 14px !important;
+                text-transform: none !important;
+
+                span {
+                    width: fit-content;
+                    height: fit-content;
+                    margin: 0;
+                    padding: 0px 7px 1px 7px;
+                    border: solid 1px #979797;
+                    text-align: center;
+                    border-radius: 8px;
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            img {
+                width: inherit;
+                border-radius: 10px;
+                border: solid 1px #97979762;
+            }
+
+            label {
+                margin: 5px 0;
+                width: inherit;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-weight: 600;
+                font-size: 17px;
+                color: inherit;
+            }
+
+        }
+
+            
+    }
+    
+}
+
+.MuiBackdrop-root {
+    background-color: #272727a9 !important;
+}
+
+.MuiBox-root {
+    border-radius: 10px;
+    color: white;
+    
+    .img-container {
+        width: 100%;
+        height: fit-content;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        
+    }
+
+    .modal-content {
+        background-color: rgb(0, 0, 0);
+        margin-top: 5%;
+        width: 100%;
+        height: fit-content;
+        padding-bottom: 10%;
+        box-shadow: 0px 0px 40px 40px #000000,
+                    5px 5px 80px 80px #000000,
+                    5px 5px 100px 100px #000000;
+
+
+        .modal-title {
+            background-color: none;
+            width: 100%;
+            position: absolute;
+            top: -20%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5%;
+
+            h1 {
+                width: fit-content;
+                font-size: 30px;
+                overflow-wrap: break-word;
+            }
+
+            .MuiButtonBase-root {
+                width: 120px;
+                height: fit-content;
+                padding: 8px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: aliceblue;
+                color: black;
+                letter-spacing: 2px;
+
+                img {
+                    width: 25px;
+                }
+            }
+        }
+        
+        .modal-des {
+            .description {
+                h5 {
+                    font-size: 16px;
+                    opacity: 0.5;
+                }
+    
+                h4 {
+                    font-size: 20px;
+                    word-spacing: 3px;
+                    padding: 2% 0;
+                }
+            }
+
+            .information {
+                p {
+                    color: #7a7a7a;
+
+                    span {
+                        color: white;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.MuiBox-root::-webkit-scrollbar {
+    display: none;
+}

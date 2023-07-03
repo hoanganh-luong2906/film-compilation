@@ -1,0 +1,14 @@
+.theme-switch {
+    position: absolute;
+    top: 2.0%;
+    right: 10%;
+    display: flex;
+    z-index: 2;
+}
+
+@media screen and (max-width: 800px) {
+    .theme-switch {
+        right: 45%;
+        transform: translate(50%,0 );
+    }
+}
