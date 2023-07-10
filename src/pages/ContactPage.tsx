@@ -119,13 +119,13 @@ const ContactUsPage: React.FC = () => {
                             helperText={formik.touched.feedback && formik.errors.feedback}
                         />
 
-                        <Button 
-                        type="submit" 
-                        variant="contained" 
-                        color="primary" 
-                        sx={{ mt: 2 }} 
-                        endIcon={<SendIcon />}
-                        onClick={() => alert('Thank you for your feedback ლ(╹◡╹ლ)')}
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            sx={{ mt: 2 }}
+                            endIcon={<SendIcon />}
+                            onClick={() => alert('Thank you for your feedback ლ(╹◡╹ლ)')}
                         >
                             Send
                         </Button>

@@ -22,6 +22,10 @@ interface inputInterface {
     newTitle: string,
 }
 
+interface AddNewFilmProps {
+    isAddNewFilm: string,
+}
+
 const validationSchema = Yup.object<inputInterface>({
     newTitle: Yup.string()
         .required('You must provide a title')
@@ -32,13 +36,18 @@ const style = {
     margin: '0 1vw',
 }
 
-const ListFilm = () => {
+const ListFilm = ({ isAddNewFilm }: AddNewFilmProps) => {
 
     const [listOfFilm, setListOfFilm] = useState<filmInterface[]>([]);
     const [input, setInput] = useState<inputInterface>({ newTitle: '' });
     const [error, setError] = useState<string>('');
     const [selectedComp, setSelectedComp] = useState<string>('');
     const [executedData, setExecutedData] = useState<filmInterface>();
+    const [isOneMore, setIsOneMore] = useState<boolean>(false);
+
+    useEffect(() => {
+        setIsOneMore((isOneMore) => !isOneMore);
+    }, [isAddNewFilm])
 
     useEffect(() => {
         async function fetchData(): Promise<void> {
@@ -55,16 +64,16 @@ const ListFilm = () => {
             }
         }
         fetchData();
-        setInput({newTitle: ''});
+        setInput({ newTitle: '' });
         setError('');
-    }, [executedData]);
+    }, [executedData, isAddNewFilm, isOneMore]);
 
     const handleUpdateFilm = async (updatedFilm: filmInterface) => {
         try {
-            const response = axios.put(`https://649addc9bf7c145d0239a030.mockapi.io/ListOfFilm/${updatedFilm.id}`,updatedFilm);
-            console.log('Successfully update Film: ', (await response).data);
+            const response = axios.put(`https://649addc9bf7c145d0239a030.mockapi.io/ListOfFilm/${updatedFilm.id}`, updatedFilm);
+            alert('Successfully update Film');
             setExecutedData((await response).data);
-        }catch (error) {
+        } catch (error) {
             console.log('>>> Error at Update Film: ', error);
         }
     };
@@ -72,7 +81,7 @@ const ListFilm = () => {
     const handleRemoveFilm = async (filmId: string) => {
         try {
             const response = await axios.delete(`https://649addc9bf7c145d0239a030.mockapi.io/ListOfFilm/${filmId}`);
-            console.log('Successfully remove Film: ', response.data);
+            alert('（￣︶￣）↗ Successfully remove Film');
             setExecutedData(response.data);
         } catch (error) {
             console.log('>>> Error at Remove Film: ', error);

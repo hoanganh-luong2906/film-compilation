@@ -19,6 +19,10 @@ interface filmInterface {
     id: string
 }
 
+interface addNewProps {
+    setAddNewFilm: (newFilmTitle: string) => void;
+}
+
 const validationSchema = Yup.object({
     title: Yup.string()
         .required('This field is required')
@@ -30,9 +34,7 @@ const validationSchema = Yup.object({
         .max(2500, 'Year out of range'),
 })
 
-const AddFilm: React.FC = () => {
-
-    const [isSucceeded, setIsSucceeded] = useState(false);
+const AddFilm = ({ setAddNewFilm }: addNewProps) => {
 
     const initialValues: filmInterface = {
         image: '/assets/images/Add-Film.jpg',
@@ -52,16 +54,16 @@ const AddFilm: React.FC = () => {
         try {
             const response = await axios.post('https://649addc9bf7c145d0239a030.mockapi.io/ListOfFilm', film);
             console.log('Entity added: ' + response.data);
-            setIsSucceeded(true);
+            alert('（￣︶￣）↗ Successfully added film.');
         } catch (error) {
             console.error('Error adding Entity: ', error);
-            setIsSucceeded(false);
         }
     }
 
     const handleSubmit = () => {
         handleAddFilm(formik.values);
-        console.log('Submitted: ', initialValues)
+        console.log('Submitted: ', initialValues);
+        setAddNewFilm(formik.values.title);
     }
 
     const formik = useFormik({
@@ -73,6 +75,7 @@ const AddFilm: React.FC = () => {
     const Message = styled.p`
         color: red;
         font-size: 16px;
+        margin-top: 1vh;
     `
 
     return (
@@ -94,7 +97,6 @@ const AddFilm: React.FC = () => {
                     label='Year'
                     name='year'
                     margin='normal'
-                    value={formik.values.year.toString()}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     error={formik.touched.year && Boolean(formik.errors.year)}
@@ -108,10 +110,6 @@ const AddFilm: React.FC = () => {
                 >
                     Add Film
                 </Button>
-                {
-                    isSucceeded &&
-                    <Message>Successfully added new film</Message>
-                }
             </form>
         </div>
     );
