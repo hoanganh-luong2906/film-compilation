@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './GenrePage.scss';
-import { useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { Divider } from '@mui/material';
+import { useParams } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -34,12 +34,9 @@ const GenrePage = () => {
     }
 
     const [filteredFilm, setFilteredFilm] = useState<filmInterface[]>([]);
-    const location = useLocation();
-    const selectedGenre = location.pathname.split('/')[2];
+    const location: any = useParams();
     const [open, setOpen] = React.useState(false);
     const [selectedFilm, setSelectedFilm] = useState<filmInterface>();
-
-    console.log(selectedGenre);
 
     const handleOpen = (film: filmInterface) => {
         setOpen(true);
@@ -57,18 +54,16 @@ const GenrePage = () => {
                     throw new Error('Fail to fetch Data at HomePage');
                 } else {
                     let listOfFilm: filmInterface[] = await response.json();
-                    console.log(listOfFilm);
-                    if (selectedGenre) {
-                        setFilteredFilm(listOfFilm.filter((film) => film.genre.includes(selectedGenre)));
-                    }
-                    console.log(filteredFilm);
+                    if (location.genre) {
+                        setFilteredFilm(listOfFilm.filter((film) => film.genre.includes(location.genre)));
+                    } 
                 }
             } catch (error) {
                 console.log(">>>ERROR: " + error);
             }
         }
         fetchData();
-    }, [selectedGenre]);
+    }, [location]);
 
     return (
         <>

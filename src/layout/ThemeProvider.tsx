@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 interface Theme {
     backgroundColor: string;
@@ -42,12 +42,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
     children,
     theme = themes.light, // Set default theme if not provided
 }) => {
-    const [dark, setDark] = useState(true);
-
-    useEffect(() => {
-        const isDark = false;
-        // Do something with the isDark value if needed
-    }, [dark]);
+    const [dark, setDark] = useState(false);
 
     const toggle = () => {
         const isDark = !dark;

@@ -1,69 +1,40 @@
+h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 35px;
+}
 .cotact-container {
-    width: 80vw;
-    min-height: 78vh;
-    margin-top: 3%;
-    border-bottom: 5%;
-    font-size: 20px;
-    color: black;
-    padding: 2% 2%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 30px #bcbcbc;
+    
+    .contact-infor {
+        display: flex;
+        justify-content: space-between;
 
-    .row {
-
-        h2 {
-            font-family: 'Merriweather', serif;
-            margin: 5% 0;
-            font-size: 35px;
+        p {
+            opacity: 0.5;
+            font-size: 16px;
+            margin: 0;
         }
 
-        .contact-infor {
-            display: flex;
-            justify-content: space-between;
+        .infor {
+            background-color: #ececec;
+            padding: 0 20px !important;
+            border-radius: 5px;
+            margin: 2% 0 !important;
 
-            p {
-                opacity: 0.5;
+            h5 {
+                font-weight: normal;
+                margin: 3% 0;
                 font-size: 16px;
-                margin: 0;
-            }
-
-            .infor {
-                background-color: #ececec;
-                padding: 0 20px !important;
-                border-radius: 10px;
-                margin: 2% 0 !important;
-
-                h5 {
-                    font-weight: normal;
-                    margin: 3% 0;
-                    font-size: 16px;
-                    text-align: left;
-                }
-            }
-
-            .content {
-                height: max-content;
+                text-align: left;
             }
         }
 
-        .contact-input {
-            padding: 0  5%;
+        .content {
             height: max-content;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: center;
-
-            .MuiInputBase-root {
-                input {
-                    width: 100%;
-                }
-            }
-
         }
     }
+
+    
+    
 }
 .MuiFormLabel-root {
     color: inherit !important; 

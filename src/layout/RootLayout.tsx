@@ -1,4 +1,4 @@
-import React, { useContext, ReactNode } from 'react';
+import { useContext} from 'react';
 import Header from '../component/Header';
 import { Outlet } from 'react-router-dom';
 import './RootLayout.scss';
