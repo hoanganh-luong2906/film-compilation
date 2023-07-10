@@ -21,12 +21,18 @@ const EditPage = () => {
         transform: 'translate(5%, 0)'
       }}
     >
-      <h2 className='text-center mt-2 mb-2'>List Of Films</h2>
       {
         Object.keys(loginUser.user).length === 0 ?
-          <Alert variant="filled" severity="error">You have not logged in!</Alert>
+          <Alert
+            variant="filled"
+            severity="error"
+            sx={{ margin: '3vh 0', fontSize: '20px', alignItems: 'center' }}
+          >
+            You have not logged in!
+          </Alert>
           :
           <>
+            <h2 className='text-center mt-2 mb-2'>List Of Films</h2>
             <AddFilm setAddNewFilm={handleAddNew} />
             <ListFilm isAddNewFilm={isAddNew} />
           </>
